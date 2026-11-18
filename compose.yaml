@@ -1,0 +1,43 @@
+name: order-management
+
+services:
+  web:
+    build: .
+    ports:
+      - "127.0.0.1:${APP_PORT:-8088}:80"
+    environment:
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_NAME: order_management
+      DB_USER: order_app
+      DB_PASS: ${DB_PASSWORD:-order_local_password}
+    volumes:
+      - sessions:/var/lib/php/sessions
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: order_management
+      MYSQL_USER: order_app
+      MYSQL_PASSWORD: ${DB_PASSWORD:-order_local_password}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root_local_password}
+      TZ: Asia/Ho_Chi_Minh
+    command: ["--character-set-server=utf8mb4", "--collation-server=utf8mb4_unicode_ci"]
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database.sql:/docker-entrypoint-initdb.d/01-database.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "MYSQL_PWD=\"$${MYSQL_PASSWORD}\" mysql --protocol=TCP -h127.0.0.1 -u\"$${MYSQL_USER}\" \"$${MYSQL_DATABASE}\" -e 'SELECT id FROM users LIMIT 1' >/dev/null 2>&1"]
+      interval: 5s
+      timeout: 5s
+      start_period: 60s
+      retries: 20
+    restart: unless-stopped
+
+volumes:
+  mysql_data:
+  sessions:

@@ -1,0 +1,11 @@
+**
+!Dockerfile
+!*.php
+!actions/
+!actions/*.php
+!assets/
+!assets/**
+!config/
+!config/*.php
+!includes/
+!includes/*.php

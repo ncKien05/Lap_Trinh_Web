@@ -1,0 +1,92 @@
+.form-control::placeholder {
+    color: #8b929b;
+    opacity: 1;
+}
+
+.order-form-page {
+    font-family: 'Inter', sans-serif;
+    background-color: #f5faf8;
+    color: #1e293b;
+}
+.order-form-page .navbar-main {
+    background-color: #1e293b;
+    border-bottom: 1px solid #334155;
+    padding: 0.75rem 1.5rem;
+}
+.order-form-page .card-custom {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+.order-form-page .form-control, .order-form-page .form-select {
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    padding: 0.6rem 0.85rem;
+    font-size: 0.92rem;
+}
+.order-form-page .form-control:focus, .order-form-page .form-select:focus {
+    border-color: #0f766e;
+    box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+}
+.order-form-page .section-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #475569;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 1rem;
+}
+.order-form-page .form-select { padding-right: 2.25rem; }
+.order-form-page .item-row .form-label {
+    display: block;
+    line-height: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+.order-form-page .item-row .item-subtotal,
+.order-form-page .item-row .btn-remove-item {
+    min-height: calc(0.92rem * 1.5 + 1.2rem + 2px);
+}
+@media (min-width: 768px) {
+    .order-form-page .item-row .item-actions { padding-top: 1.75rem; }
+}
+.order-form-page .item-row {
+    background: #f5faf8;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 0.85rem;
+    margin-bottom: 0.65rem;
+}
+.order-form-page .btn-add-item {
+    border: 1px dashed #64748b;
+    background: #ffffff;
+    color: #334155;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    font-size: 0.88rem;
+}
+.order-form-page .btn-add-item:hover {
+    background: #edf7f2;
+}
+.order-form-page .total-box {
+    background: #edf7f2;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+}
+.order-form-page .btn-submit {
+    background-color: #1e293b;
+    border-color: #1e293b;
+    color: #ffffff;
+    border-radius: 8px;
+    font-weight: 600;
+    padding: 0.65rem 1.75rem;
+}
+.order-form-page .btn-submit:hover {
+    background-color: #0f172a;
+    border-color: #0f172a;
+    color: #ffffff;
+}
